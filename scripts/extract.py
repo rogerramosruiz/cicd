@@ -1,12 +1,12 @@
-# extract.py
-def extract_data(source):
-    """
-    Extrae datos desde una fuente.
-    """
-    print(f"Extrayendo datos desde: {source}")
-    return {"status": "success", "rows": 1000}
+import pandas as pd
+import random
+import os
 
-# Test
-if __name__ == "__main__":
-    result = extract_data("database")
-    print(result)
+data = {
+    'producto': [random.choice(['A', 'B', 'C']) for _ in range(10)],
+    'venta': [random.randint(50, 100) for _ in range(10)]
+}
+df = pd.DataFrame(data)
+
+os.makedirs('data/raw', exist_ok=True)
+df.to_parquet('data/raw/sales.parquet')
