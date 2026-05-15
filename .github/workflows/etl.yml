@@ -3,9 +3,7 @@ name: ETL Pipeline
 
 on:
   push:
-    branches: [main]
-  schedule:
-    - cron: '0 21 * * *'
+    branches: [dev]
   workflow_dispatch:
 
 jobs:
